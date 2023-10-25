@@ -17,7 +17,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    depends-on: lint
+    needs: lint
     steps:
       - name: Checkout
         uses: actions/checkout@v4
