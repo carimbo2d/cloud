@@ -23,8 +23,8 @@ func (s *ArithService) Div(a, b float64) (float64, error) {
 	return a / b, nil
 }
 
-func (s *ArithService) Version() string {
-	return fmt.Sprintf("%d", 1)
+func (s *ArithService) Scalar(vector [3]int, scalar int) []int {
+	return []int{vector[0] * scalar, vector[1] * scalar, vector[2] * scalar}
 }
 
 func main() {
