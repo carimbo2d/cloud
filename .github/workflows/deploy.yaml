@@ -14,8 +14,8 @@ jobs:
 
       - name: Cache Node.js modules
         uses: actions/cache@v3
-        key: ${{ runner.os }}
         with:
+          key: ${{ runner.os }}-npm
           path: |
             ~/.npm
 
