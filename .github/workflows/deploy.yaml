@@ -12,11 +12,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # - name: Cache Node.js modules
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: |
-      #       node_modules
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v1
@@ -41,9 +41,6 @@ jobs:
 
       - name: Install Firebase
         run: npm install --global firebase-tools
-
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
 
       - name: Authenticate to Firebase
         run: firebase login:ci --no-localhost --token ${{ secrets.FIREBASE_TOKEN }}
