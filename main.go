@@ -40,7 +40,7 @@ type SampleResponse struct {
 	String  string `json:"string"`
 	Null    *int   `json:"null"`
 	// Array   []int                `json:"array"`
-	Object ObjectSampleResponse `json:"object"`
+	// Object ObjectSampleResponse `json:"object"`
 }
 
 func (s *HelperService) Sample() SampleResponse {
@@ -50,10 +50,10 @@ func (s *HelperService) Sample() SampleResponse {
 		String:  "hello",
 		Null:    nil,
 		// Array:   []int{1, 2, 3},
-		Object: ObjectSampleResponse{
-			Number: 1.23,
-			String: "world",
-		},
+		// Object: ObjectSampleResponse{
+		// 	Number: 1.23,
+		// 	String: "world",
+		// },
 	}
 }
 
