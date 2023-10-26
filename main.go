@@ -29,13 +29,8 @@ func (s *ArithService) Scalar(vector [3]float64, scalar float64) []float64 {
 
 type HelperService struct{}
 
-func (s *HelperService) Echo(args ...any) []any {
-	result := make([]any, len(args))
-	for _, arg := range args {
-		result = append(result, arg)
-	}
-
-	return result
+func (s *HelperService) Echo(args ...any) any {
+	return struct{ Args []any }{Args: args}
 }
 
 func main() {
