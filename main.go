@@ -35,12 +35,12 @@ type ObjectSampleResponse struct {
 }
 
 type SampleResponse struct {
-	Integer int                  `json:"integer"`
-	Boolean bool                 `json:"boolean"`
-	String  string               `json:"string"`
-	Null    *int                 `json:"null"`
-	Array   []int                `json:"array"`
-	Object  ObjectSampleResponse `json:"object"`
+	Integer int    `json:"integer"`
+	Boolean bool   `json:"boolean"`
+	String  string `json:"string"`
+	Null    *int   `json:"null"`
+	// Array   []int                `json:"array"`
+	Object ObjectSampleResponse `json:"object"`
 }
 
 func (s *HelperService) Sample() SampleResponse {
@@ -49,7 +49,7 @@ func (s *HelperService) Sample() SampleResponse {
 		Boolean: true,
 		String:  "hello",
 		Null:    nil,
-		Array:   []int{1, 2, 3},
+		// Array:   []int{1, 2, 3},
 		Object: ObjectSampleResponse{
 			Number: 1.23,
 			String: "world",
