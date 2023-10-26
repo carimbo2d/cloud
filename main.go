@@ -29,16 +29,18 @@ func (s *ArithService) Scalar(vector [3]float64, scalar float64) []float64 {
 
 type HelperService struct{}
 
+type ObjectSampleResponse struct {
+	Number float64 `json:"number"`
+	String string  `json:"string"`
+}
+
 type SampleResponse struct {
-	Integer int    `json:"integer"`
-	Boolean bool   `json:"boolean"`
-	String  string `json:"string"`
-	Null    *int   `json:"null"`
-	Array   []int  `json:"array"`
-	Object  struct {
-		Number float64 `json:"number"`
-		String string  `json:"string"`
-	} `json:"object"`
+	Integer int                  `json:"integer"`
+	Boolean bool                 `json:"boolean"`
+	String  string               `json:"string"`
+	Null    *int                 `json:"null"`
+	Array   []int                `json:"array"`
+	Object  ObjectSampleResponse `json:"object"`
 }
 
 func (s *HelperService) Sample() SampleResponse {
@@ -48,10 +50,7 @@ func (s *HelperService) Sample() SampleResponse {
 		String:  "hello",
 		Null:    nil,
 		Array:   []int{1, 2, 3},
-		Object: struct {
-			Number float64 `json:"number"`
-			String string  `json:"string"`
-		}{
+		Object: ObjectSampleResponse{
 			Number: 1.23,
 			String: "world",
 		},
