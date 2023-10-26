@@ -29,8 +29,33 @@ func (s *ArithService) Scalar(vector [3]float64, scalar float64) []float64 {
 
 type HelperService struct{}
 
-func (s *HelperService) Echo(args ...any) any {
-	return struct{ Args []any }{Args: args}
+type SampleResponse struct {
+	Integer int
+	Boolean bool
+	String  string
+	Null    *int
+	Array   []int
+	Object  struct {
+		Number float64
+		String string
+	}
+}
+
+func (s *HelperService) Sample() SampleResponse {
+	return SampleResponse{
+		Integer: 1,
+		Boolean: true,
+		String:  "hello",
+		Null:    nil,
+		Array:   []int{1, 2, 3},
+		Object: struct {
+			Number float64
+			String string
+		}{
+			Number: 1.23,
+			String: "world",
+		},
+	}
 }
 
 func main() {
