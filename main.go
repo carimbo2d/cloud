@@ -43,7 +43,7 @@ type SampleResponse struct {
 	Object ObjectSampleResponse `json:"object"`
 }
 
-func (s *HelperService) Sample() SampleResponse {
+func (s *HelperService) Sample(...any) SampleResponse {
 	return SampleResponse{
 		Integer: 1,
 		Boolean: true,
