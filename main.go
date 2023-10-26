@@ -27,6 +27,17 @@ func (s *ArithService) Scalar(vector [3]float64, scalar float64) []float64 {
 	return []float64{vector[0] * scalar, vector[1] * scalar, vector[2] * scalar}
 }
 
+type HelperService struct{}
+
+func (s *HelperService) Echo(args ...any) []any {
+	result := make([]any, len(args))
+	for _, arg := range args {
+		result = append(result, arg)
+	}
+
+	return result
+}
+
 func main() {
 	if err := run(); err != nil {
 		log.Fatal(err)
@@ -37,6 +48,10 @@ func run() error {
 	var server = rpc.NewServer()
 
 	if err := server.RegisterName("arith", &ArithService{}); err != nil {
+		return err
+	}
+
+	if err := server.RegisterName("helper", &HelperService{}); err != nil {
 		return err
 	}
 
