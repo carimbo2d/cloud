@@ -30,8 +30,8 @@ func (s *ArithService) Scalar(vector [3]float64, scalar float64) []float64 {
 type HelperService struct{}
 
 type SampleResponse struct {
-	Integer int
-	Boolean bool
+	Integer int  `json:"integer"`
+	Boolean bool `json:"boolean"`
 	String  string
 	Null    *int
 	Array   []int
