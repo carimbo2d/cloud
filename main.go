@@ -49,8 +49,8 @@ func (s *HelperService) Sample() SampleResponse {
 		Null:    nil,
 		Array:   []int{1, 2, 3},
 		Object: struct {
-			Number float64
-			String string
+			Number float64 `json:"number"`
+			String string  `json:"string"`
 		}{
 			Number: 1.23,
 			String: "world",
