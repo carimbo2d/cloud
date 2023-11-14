@@ -26,6 +26,7 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
       - name: Deploy to Cloud Run
+        id: deploy
         run: |
           gcloud config set run/region ${{ secrets.REGION }}
           gcloud run deploy ${{ secrets.SERVICE_NAME }} --source $(pwd) --platform managed --allow-unauthenticated
