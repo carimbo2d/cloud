@@ -25,18 +25,8 @@ jobs:
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
-      - name: Authenticate Docker
-        run: |
-          gcloud auth configure-docker --quiet ${{ secrets.REGION }}-docker.pkg.dev
-
-      - name: Build and Push
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{ secrets.REGISTRY }}/${{ secrets.SERVICE_NAME }}:latest
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
       - name: Deploy to Cloud Run
         id: deploy
